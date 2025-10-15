@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function CardProducts(){
+export function CardProductsJewelery(){
     const API_URL= import.meta.env.VITE_API_URL;
 
     const [products, setProducts] = useState([])
@@ -15,17 +15,19 @@ export function CardProducts(){
 
 
     useEffect(()=>{
-        fetch(`${API_URL}/products`)
+        fetch(`${API_URL}/products/category/jewelery`)
         .then(response => response.json())
         .then(data => setProducts(data))
     }, [])
 
     return(
-        <div>
+        <div className="grid grid-cols-3 gap-5">
             {products.map((pegaItem) => (
-                <div className="w-[100px] h-[80px] border rounded">
+                <div className=" w-[400px] h-[auto] border rounded">
                     <div>{pegaItem.title}</div>
-
+                    <div><img src={pegaItem.image} alt="" className="w-[70px]"/></div>
+                    <div>{pegaItem.price}</div>
+                    <div>{pegaItem.description}</div>
                 </div>
             ))}
         </div>
