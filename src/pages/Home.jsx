@@ -1,9 +1,13 @@
+import { CardProducts } from "../components/CardProducts";
+
 export default function Home() {
   
   return (
     <div>
       <main>
-        <section></section>
+        <section>
+          <CardProducts/>
+        </section>
         <section></section>
         <section></section>
       </main>
